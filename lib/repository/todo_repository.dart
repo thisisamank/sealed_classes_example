@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dart_3/constants/endpoints.dart';
@@ -12,8 +13,9 @@ class TodoRepository {
     try {
       final response = await client.get(Uri.parse(todosUrl));
       if (response.statusCode == 200) {
-        final todos =
-            (response.body as List).map((e) => Todo.fromJson(e)).toList();
+        final todos = (json.decode(response.body) as List)
+            .map((e) => Todo.fromJson(json.encode(e)))
+            .toList();
         return right(todos);
       } else {
         return left(Failure("Couldn't find the post"));
