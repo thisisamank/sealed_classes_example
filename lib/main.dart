@@ -49,6 +49,10 @@ class _TodoScreenState extends State<TodoScreen> {
           valueListenable: _todoNotifier,
           builder: (context, value, child) {
             switch (value) {
+              // This is how we can use pattern matching in Dart, will be covered in coming blogs.
+              // Loading() => _buildLoading(),
+              // Error(message: var error) => _buildError(error),
+              // Success(value: var value) => _buildSuccess(value),
               case Loading():
                 return _buildLoading();
               case Error():
