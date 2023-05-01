@@ -32,7 +32,7 @@ class TodoScreen extends StatefulWidget {
 }
 
 class _TodoScreenState extends State<TodoScreen> {
-  final TodoNotifier _todoNotifier = TodoNotifier(TodoRepository());
+  final _todoNotifier = TodoNotifier(TodoRepository());
   @override
   void initState() {
     _todoNotifier.getTodos();
@@ -45,9 +45,10 @@ class _TodoScreenState extends State<TodoScreen> {
       appBar: AppBar(
         title: const Text("Dart 3 : Todo app"),
       ),
-      body: ValueListenableBuilder(
+      body: ValueListenableBuilder<FutureValues<List<Todo>>>(
           valueListenable: _todoNotifier,
           builder: (context, value, child) {
+            // switch will automatically ask you to cover all the cases of [FutureValues]
             switch (value) {
               // This is how we can use pattern matching in Dart, will be covered in coming blogs.
               // Loading() => _buildLoading(),

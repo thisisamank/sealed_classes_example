@@ -9,6 +9,10 @@ import 'package:http/http.dart' as http;
 
 class TodoRepository {
   final http.Client client = http.Client();
+
+  /// Fetch todos from the server. Uses the `http` package.
+  /// [Either] type which we created previously is used to handle errors.
+  /// [K] is [Failure] and [V] is [List<Todo>].
   Future<Either<Failure, List<Todo>>> fetchTodos() async {
     try {
       final response = await client.get(Uri.parse(todosUrl));
@@ -18,12 +22,12 @@ class TodoRepository {
             .toList();
         return right(todos);
       } else {
-        return left(Failure("Couldn't find the post"));
+        return left(Failure("Couldn't find the todo"));
       }
     } on SocketException {
       return left(Failure("No Internet Connection"));
     } on HttpException {
-      return left(Failure("Couldn't find the post"));
+      return left(Failure("Couldn't find the todo"));
     } on FormatException {
       return left(Failure("Bad response format"));
     } catch (e) {
