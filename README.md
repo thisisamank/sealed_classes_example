@@ -15,12 +15,12 @@ flutter upgrade
 ## Code Overview
 The code in this repository is organized into several files, each serving a different purpose. Here is a brief overview of the different files:
 
-`endpoints.dart`: This file contains the API endpoint URL for the Todo app.
-`either.dart`: This file contains the implementation of the Either class, which is used to handle error cases.
-`todo_repository.dart`: This file contains the TodoRepository class, which fetches data from the API and returns it as an Either type.
-`future_value.dart`: This file contains the FutureValue class, which is used to safely manipulate asynchronous data.
-`todo_notifier.dart`: This file contains the TodoNotifier class, which manages the state of the API request.
-`todo_screen.dart`: This file contains the TodoScreen class, which displays the list of Todo items.
+- `endpoints.dart`: This file contains the API endpoint URL for the Todo app.
+- `either.dart`: This file contains the implementation of the Either class, which is used to handle error cases.
+- `todo_repository.dart`: This file contains the TodoRepository class, which fetches data from the API and returns it as an Either type.
+- `future_value.dart`: This file contains the FutureValue class, which is used to safely manipulate asynchronous data.
+- `todo_notifier.dart`: This file contains the TodoNotifier class, which manages the state of the API request.
+- `todo_screen.dart`: This file contains the TodoScreen class, which displays the list of Todo items.
 
 ## Conclusion
 We hope that you find this code and blog post helpful in understanding sealed classes in Dart. If you have any questions or comments, please feel free to open an issue on this repository. Thank you for reading!
